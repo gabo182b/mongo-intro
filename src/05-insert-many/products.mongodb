@@ -1,0 +1,33 @@
+use("test_store")
+
+db.products.drop() // this function delete all the documents in the collection
+
+db.products.insertMany([
+  {
+    _id: 1,
+    name: "Product 1",
+    price: 100
+  },
+  {
+    _id: 2,
+    name: "Product 2",
+    price: 20
+  },
+  {
+    _id: 1,
+    name: "Product 3",
+    price: 120
+  },
+  {
+    _id: 4,
+    name: "Product 4",
+    price: 120
+  },
+],{
+  // With this instruction if mongo finds an error on the execution it exclude the errored document out and it continues with th data insertion
+  ordered: false
+})
+
+db.products.find()
+
+// When mongo finds an error it stops the code execution on that line

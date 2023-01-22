@@ -1,0 +1,12 @@
+use("test_store")
+
+db.products.updateOne(
+  {_id: 2}, // query
+  {
+    $inc: {
+      price: 2800, // inc increments the original value adding the value we are passing
+      }
+  }
+)
+
+// inc is usually used for number values

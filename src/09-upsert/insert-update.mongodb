@@ -1,0 +1,25 @@
+use("test_store")
+
+// db.iot.insertOne({
+//   sensor: "A001",
+//   date: "2022-01-03",
+//   readings: [1212]
+// })
+
+db.iot.updateOne({
+  sensor: "A001",
+  date: "2022-01-04"
+}, {
+  $pop: { // $pop delete from the beginning or the end
+    readings: 1 // 1 tells $pop to delete the element at the en of the array, -1 tells it to delete the element at the beginning
+  }
+})
+
+// db.iot.updateOne({
+//   sensor: "A001",
+//   date: "2022-01-03"
+// }, {
+//   $push: {
+//     readings: 2323
+//   }
+// })

@@ -1,0 +1,17 @@
+use("test_store")
+
+// remove one element from the array
+db.inventory.updateMany({}, { // an empty json search in all the documents
+  $pull: {
+    tags: "book"
+  }
+})
+
+// remove many elements from the array
+db.inventory.updateMany({}, {
+  $pull: {
+    tags: {
+      $in: ["appliance", "school"]
+    }
+  }
+})

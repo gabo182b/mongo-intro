@@ -1,0 +1,12 @@
+use("test_store")
+
+db.products.updateOne(
+  {_id: 2}, // query
+  {
+    $set: {
+      name: 'new name', // update
+      price: 300,
+      tags: ['A', 'B', 'C']
+      }
+  }
+  )
