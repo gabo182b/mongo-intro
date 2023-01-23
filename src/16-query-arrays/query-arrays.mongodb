@@ -1,0 +1,29 @@
+use("test_store")
+
+// $in, values and arrays
+// db.inventory.find({qty: {$in: [20,25]}})
+// db.inventory.find({tags: {$in: ["book", "electronics"]}})
+
+// $nin, values and arrays
+// db.inventory.find({qty: {$nin: [20,25]}})
+// db.inventory.find({tags: {$nin: ["book", "electronics"]}})
+
+// arrays
+// db.inventory.find({tags: "book"})
+// db.inventory.find({tags: ["school","book"]}) // the position of the values must coincide
+// db.inventory.find({tags: ["book","school"]}) // this will throw an empty result
+
+//  $all works only with arrays
+// db.inventory.find({tags: {$all: ["book","school"]}}) // it must contain the values it doesnt  matter the order
+
+// $size works only with arrays
+// db.inventory.find({tags: {$size: 2}}) // find arrays with this size
+
+// $elemMatch works only with arrays
+db.survey.find({
+  results: {
+    $elemMatch: {
+      product: "xyz",
+      score: { $gte: 7}
+    }}
+  })
