@@ -1,0 +1,8 @@
+use("test_store")
+
+// db.inventory.find({"item.description": "Single line description." })
+// db.inventory.find({"item.description": {$regex : /line/} })
+// db.inventory.find({"item.description": {$regex : /LINE/i} }) // case insensitivity to match upper and lower cases
+// db.inventory.find({"item.description": {$regex : /line$/i} }) // search for matches at the end of the line
+// db.inventory.find({"item.description": {$regex : /^single/i} }) // search for matches at the beginning of the line
+db.inventory.find({"item.description": {$regex : /^s/im} }) // "m" search for matches at the beginning or end of each line for strings with multiline values
