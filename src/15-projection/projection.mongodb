@@ -1,0 +1,7 @@
+use("sample_training")
+
+// MongoDB Projection is a special feature allowing you to select only the necessary data rather than selecting the whole set of data from the document.
+db.trips.find(
+  {tripduration: {$gte: 500}}, //query
+  {tripduration: 1, usertype: 1} //projection
+  )
