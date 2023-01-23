@@ -1,0 +1,12 @@
+use("test_store")
+
+db.inventory.updateMany(
+  // query
+  {qty: { $ne: 20}},
+  {
+    $inc: { // update - operator
+      qty: 10
+    }
+  }
+  )
+
